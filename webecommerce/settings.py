@@ -10,7 +10,7 @@ SECRET_KEY = 'your_secret_key_here'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['web-production-39987.up.railway.app', '127.0.0.1', 'localhost']
 
 # Application definition
 INSTALLED_APPS = [
@@ -55,7 +55,20 @@ TEMPLATES = [
 WSGI_APPLICATION = 'webecommerce.wsgi.application'
 
 # Database configuration
-DATABASES = {
+if 'MYSQLHOST' in os.environ:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': os.environ.get('MYSQLDATABASE'),
+            'USER': os.environ.get('MYSQLUSER'),
+            'PASSWORD': os.environ.get('MYSQLPASSWORD'),
+            'HOST': os.environ.get('MYSQLHOST'),
+            'PORT': os.environ.get('MYSQLPORT'),
+        }
+    }
+else:
+    # Seu banco de dados local aqui (o que você já tinha)
+    DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ecommerce_db',
@@ -63,8 +76,9 @@ DATABASES = {
         'PASSWORD': 'Mcpsa16@#',
         'HOST': 'localhost',
         'PORT': '3306',
+        }
     }
-}
+
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
