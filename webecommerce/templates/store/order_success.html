@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6 text-center">
+            <div class="card shadow-lg border-0 rounded-lg overflow-hidden">
+                <div class="bg-success" style="height: 10px;"></div>
+                
+                <div class="card-body p-5">
+                    <div class="mb-4">
+                        <i class="fas fa-check-circle text-success animate__animated animate__bounceIn" style="font-size: 6rem;"></i>
+                    </div>
+                    
+                    <h1 class="display-4 font-weight-bold mb-3">You're All Set!</h1>
+                    <p class="lead text-muted mb-4">
+                        Thank you for choosing TechStore, <strong>{{ user.first_name|default:user.username }}</strong>. Your apparel is being prepared for shipment.
+                    </p>
+                    
+                    <div class="bg-light rounded p-4 mb-4 border">
+                        <p class="mb-2 text-uppercase small font-weight-bold text-muted">What's Next?</p>
+                        <p class="mb-0">
+                            You can track your package and view your digital receipt anytime in your dashboard.
+                        </p>
+                    </div>
+
+                    <div class="d-flex flex-column flex-md-row justify-content-center mt-4">
+                        <a href="{% url 'product_list' %}" class="btn btn-primary btn-lg px-4 mb-3 mb-md-0 mx-md-2 shadow-sm">
+                            <i class="fas fa-shopping-bag mr-2"></i>Continue Shopping
+                        </a>
+                        <a href="{% url 'profile' %}" class="btn btn-outline-dark btn-lg px-4 mx-md-2">
+                            <i class="fas fa-receipt mr-2"></i>Order History
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-4 animate__animated animate__fadeIn">
+                <p class="text-muted">
+                    <i class="fas fa-envelope-open-text mr-2"></i>
+                    A confirmation email has been sent to <strong>{{ user.email }}</strong>
+                </p>
+                <a href="{% url 'home' %}" class="btn btn-link text-secondary btn-sm">
+                    Return to Homepage
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Subtle animation for the checkmark */
+    .animate__bounceIn {
+        animation: bounceIn 0.8s;
+    }
+    @keyframes bounceIn {
+        from, 20%, 40%, 60%, 80%, to { animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
+        0% { opacity: 0; transform: scale3d(0.3, 0.3, 0.3); }
+        20% { transform: scale3d(1.1, 1.1, 1.1); }
+        40% { transform: scale3d(0.9, 0.9, 0.9); }
+        60% { opacity: 1; transform: scale3d(1.03, 1.03, 1.03); }
+        80% { transform: scale3d(0.97, 0.97, 0.97); }
+        to { opacity: 1; transform: scale3d(1, 1, 1); }
+    }
+</style>
+{% endblock %}

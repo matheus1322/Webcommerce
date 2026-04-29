@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row align-items-center mb-5">
+        <div class="col-md-6">
+            <h1 class="display-4 font-weight-bold">Our Story</h1>
+            <p class="lead text-muted">Founded in 2026, our mission is to provide premium, sustainable apparel for the modern lifestyle.</p>
+            <p>We believe that high-quality clothing shouldn't be a luxury. Every piece in our store—from our heavy-weight sweatshirts to our classic cotton tees—is designed with durability and comfort in mind.</p>
+        </div>
+        <div class="col-md-6">
+            <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="img-fluid rounded shadow" alt="Our Team">
+        </div>
+    </div>
+
+    <hr class="my-5">
+
+    <div class="text-center mb-5">
+        <h2 class="font-weight-bold">Meet the Developers</h2>
+        <p class="text-muted">The architects behind this e-commerce platform.</p>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-4 text-center mb-4">
+            <div class="card border-0 shadow-sm p-4 h-100">
+                <div class="mx-auto mb-3 bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 80px; height: 80px; font-size: 2rem;">
+                    MA
+                </div>
+                <h4 class="font-weight-bold">Matheus</h4>
+                <p class="text-primary font-weight-bold">Full-Stack Developer</p>
+                <p class="small text-muted">Specialized in Django logic, database management with MySQL, and secure checkout systems.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4 text-center mb-4">
+            <div class="card border-0 shadow-sm p-4 h-100">
+                <div class="mx-auto mb-3 bg-dark text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 80px; height: 80px; font-size: 2rem;">
+                    MS
+                </div>
+                <h4 class="font-weight-bold">Mason</h4>
+                <p class="text-primary font-weight-bold">Frontend Engineer</p>
+                <p class="small text-muted">Focused on UI/UX design, responsive Bootstrap layouts, and creating a seamless customer journey.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

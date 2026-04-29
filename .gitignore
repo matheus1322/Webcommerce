@@ -1,0 +1,25 @@
+# Ambientes Virtuais (VENV)
+venv/
+env/
+ENV/
+.env
+
+# Ficheiros do Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ficheiros do Django (Ficheiros Locais)
+db.sqlite3
+db.sqlite3-journal
+media/
+static/
+
+# Configurações do VS Code ou Editores
+.vscode/
+.idea/
+*.swp
+*.bak
+
+# Logs e Erros
+*.log

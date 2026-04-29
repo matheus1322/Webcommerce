@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow border-0">
+                <div class="card-body p-5">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-user-plus fa-3x text-success mb-3"></i>
+                        <h2 class="font-weight-bold">Join TechStore</h2>
+                        <p class="text-muted">Create an account to start shopping our apparel.</p>
+                    </div>
+
+                    <form method="POST" novalidate>
+                        {% csrf_token %}
+                        
+                        {% for field in form %}
+                            <div class="form-group">
+                                <label class="small font-weight-bold text-uppercase">{{ field.label }}</label>
+                                {{ field }}
+                                {% if field.help_text %}
+                                    <small class="form-text text-muted">{{ field.help_text }}</small>
+                                {% endif %}
+                                {% for error in field.errors %}
+                                    <p class="text-danger small mb-0">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                        {% endfor %}
+
+                        <button type="submit" class="btn btn-success btn-block btn-lg shadow-sm mt-4">
+                            Create Account <i class="fas fa-check-circle ml-2"></i>
+                        </button>
+                    </form>
+
+                    <div class="text-center mt-4">
+                        <p class="small text-muted mb-0">Already a member?</p>
+                        <a href="{% url 'login' %}" class="font-weight-bold text-success">Sign in here</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-3">
+                <a href="{% url 'home' %}" class="text-muted small"><i class="fas fa-arrow-left"></i> Back to Home</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    input[type="text"], input[type="password"], input[type="email"], select, textarea {
+        display: block;
+        width: 100%;
+        height: calc(1.5 em + .75 rem + 2 px);
+        padding: .375 rem .75 rem;
+        font-size: 1 rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1 px solid #ced4da;
+        border-radius: .25 rem;
+        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    }
+    input:focus {
+        border-color: #80bdff;
+        outline: 0;
+        box-shadow: 0 0 0 .2 rem rgba(0, 123, 255, .25);
+    }
+</style>
+{% endblock %}
